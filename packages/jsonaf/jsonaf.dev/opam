@@ -1,25 +1,23 @@
-opam-version: "1.2"
+opam-version: "2.0"
 maintainer: "Spiros Eliopoulos <spiros@inhabitedtype.com>"
 authors: [ "Spiros Eliopoulos <spiros@inhabitedtype.com>" ]
 license: "BSD-3-clause"
 homepage: "https://github.com/inhabitedtype/jsonaf"
 bug-reports: "https://github.com/inhabitedtype/jsonaf/issues"
-dev-repo: "https://github.com/inhabitedtype/jsonaf.git"
+dev-repo: "git+https://github.com/inhabitedtype/jsonaf.git"
 build: [
   ["dune" "subst"] {pinned}
   ["dune" "build" "-p" name "-j" jobs]
-]
-build-test: [
-  ["dune" "runtest" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
 depends: [
+  "ocaml" {>= "4.03.0"}
   "dune" {build & >= "1.0"}
-  "alcotest" {test}
+  "alcotest" {with-test}
   "angstrom" {>= "0.14.0"}
-  "faraday"  {>= "0.7.0"}
+  "faraday" {>= "0.7.0"}
   "result"
 ]
-available: [ ocaml-version >= "4.03.0" ]
 url {
   src: "https://github.com/TyOverby/jsonaf/archive/938f358a094e8791f089c931a0ce9fc109d94335.zip"
   checksum: "md5=64685ff7aaa4c979946c8d4544f7f194"
