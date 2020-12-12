@@ -1,0 +1,35 @@
+opam-version: "2.0"
+synopsis: "OCaml types for Reddit's API"
+maintainer: ["levimroth@gmail.com"]
+authors: ["Levi Roth"]
+license: "MIT"
+homepage: "https://github.com/leviroth/reddit_api"
+bug-reports: "https://github.com/leviroth/reddit_api/issues"
+depends: [
+  "odoc" {with-doc}
+  "dune" {>= "2.0" & build}
+  "cohttp" {>= "2.5.4"}
+  "core_kernel" {= "v0.14.0"}
+  "ezjsonm" {>= "1.0"}
+]
+build: [
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/leviroth/reddit_api.git"
+url {
+  src: "https://github.com/leviroth/ocaml-reddit-api/archive/0.1.tar.gz"
+  checksum: [
+    "md5=dd5205f33dc82235d06fb374bd111949"
+    "sha512=d7b724e3b5440cd61347721ee378d1475ce9060335b8f37beecf65d484c6b528f108a7d568038b51b81f4a0402abcae835672c02c959d2a5d5e6a31b3f953f93"
+  ]
+}
